@@ -28,9 +28,10 @@ function UserList() {
         sortOrder: sortConfig.direction,
       }
 
-      fetch(
-        `${process.env.REACT_APP_API_URL}/users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`
-      )
+      // fetch(
+      //   `${process.env.REACT_APP_API_URL}/users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`
+      // )
+      fetch(`${process.env.REACT_APP_API_URL}/users`)
         .then((response) => response.json())
         .then((data) => {
           const sortedUsers = [...data].sort((a, b) => {
