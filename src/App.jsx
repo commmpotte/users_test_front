@@ -12,7 +12,8 @@ function App() {
     <AppProvider>
       <Router>
         <Routes>
-          <Route path="/auth/login" element={<Login />} index />
+          {/* <Route path="/auth/login" element={<Login />} index /> */}
+          <Route path="/" element={<Login />} index />
           <Route path="/auth/register" element={<Register />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/users/:id" element={<User />} />
