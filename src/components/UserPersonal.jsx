@@ -57,13 +57,14 @@ const UserPersonal = () => {
         }
       )
       if (response.ok) {
-        const userData = response.data
+        const userData = await response.json()
         setCurrentUser(userData)
         // console.log(currentUser)
         console.log('Успешное обновление данных:', userData)
         navigate('/users')
       } else {
-        console.error('Ошибка при обновлении данных:', response.statusText)
+        const errorText = await response.text()
+        console.error('Ошибка при обновлении данных:', errorText)
       }
     } catch (error) {
       console.error('Ошибка при обновлении данных:', error)
