@@ -49,7 +49,7 @@ const UserPersonal = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.patch(
-        `${process.env.REACT_APP_API_URL}/users/${id}`,
+        `${process.env.REACT_APP_API_URL}users/${id}`,
         values
       )
       const userData = response.data

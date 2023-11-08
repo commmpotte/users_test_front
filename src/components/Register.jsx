@@ -28,9 +28,10 @@ const Register = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/register`,
+        `${window.REACT_APP_API_URL}/auth/register`,
         values
       )
+      // process.env.REACT_APP_API_URL
 
       console.log('Успешная регистрация:', response.data)
       navigate('/auth/login')

@@ -37,7 +37,7 @@ function UserList() {
       //         }
 
       fetch(
-        `${process.env.REACT_APP_API_URL}/users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`
+        `${window.REACT_APP_API_URL}users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`
       )
         .then((response) => response.json())
         .then((data) => {

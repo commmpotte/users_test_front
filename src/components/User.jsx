@@ -12,9 +12,7 @@ function User() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/users/${id}`
-        )
+        const response = await fetch(`${window.REACT_APP_API_URL}/users/${id}`)
 
         if (!response.ok) {
           throw new Error(`Failed to fetch user with ID: ${id}`)
