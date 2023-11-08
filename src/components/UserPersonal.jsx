@@ -58,8 +58,8 @@ const UserPersonal = () => {
       )
       if (response.ok) {
         const userData = await response.json()
+        // console.log(userData)
         setCurrentUser(userData)
-        // console.log(currentUser)
         console.log('Успешное обновление данных:', userData)
         navigate('/users')
         setSubmitting(false)
