@@ -27,7 +27,7 @@ const Register = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        'http://localhost:4444/auth/register',
+        `${process.env.REACT_APP_API_URL}/auth/register`,
         values
       )
 

@@ -12,7 +12,9 @@ function User() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://localhost:4444/users/${id}`)
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/users/${id}`
+        )
 
         if (!response.ok) {
           throw new Error(`Failed to fetch user with ID: ${id}`)
@@ -37,7 +39,7 @@ function User() {
       is_active: isActive,
     }
 
-    fetch(`http://localhost:4444/users/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/users/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +58,7 @@ function User() {
   }
 
   const handleDelete = () => {
-    fetch(`http://localhost:4444/users/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/users/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {

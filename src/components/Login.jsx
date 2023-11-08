@@ -39,7 +39,7 @@ function Login() {
         password: formData.password,
       }
 
-      fetch('http://localhost:4444/auth/login', {
+      fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
