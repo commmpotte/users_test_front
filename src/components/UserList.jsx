@@ -4,8 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import dotenv from 'dotenv'
 
-
-
 function UserList() {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
@@ -40,7 +38,7 @@ function UserList() {
       //         }
 
       fetch(
-        `${process.env.REACT_APP_API_URL}users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`
+        `${process.env.REACT_APP_API_URL}/users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`
       )
         .then((response) => response.json())
         .then((data) => {
