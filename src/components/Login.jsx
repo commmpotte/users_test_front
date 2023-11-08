@@ -86,7 +86,7 @@ function Login() {
   }
 
   return (
-    <main className="form-signin w-75 text-center">
+    <main className="form-signin text-center">
       <form onSubmit={handleSubmit}>
         <h1 className="h3 mb-3 fw-normal">Вход в систему</h1>
         <div className="form-floating">
