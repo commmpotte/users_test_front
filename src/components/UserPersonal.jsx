@@ -6,6 +6,7 @@ import axios from 'axios'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAppContext } from '../store/store'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import dotenv from 'dotenv'
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string()
@@ -25,6 +26,7 @@ const RegisterSchema = Yup.object().shape({
 })
 
 const UserPersonal = () => {
+  dotenv.config()
   const { currentUser, setCurrentUser } = useAppContext()
   const { id } = useParams()
   const navigate = useNavigate()

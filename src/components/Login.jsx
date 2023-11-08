@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAppContext } from '../store/store'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import dotenv from 'dotenv'
 
 function Login() {
+  dotenv.config()
   const [formData, setFormData] = useState({ username: '', password: '' })
   const [errors, setErrors] = useState({})
   const navigate = useNavigate()
@@ -39,7 +41,7 @@ function Login() {
         password: formData.password,
       }
 
-      fetch(`${window.REACT_APP_API_URL}/auth/login`, {
+      fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

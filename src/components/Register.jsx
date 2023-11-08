@@ -5,6 +5,8 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link, useNavigate } from 'react-router-dom'
+import dotenv from 'dotenv'
+
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string()
@@ -24,11 +26,14 @@ const RegisterSchema = Yup.object().shape({
 })
 
 const Register = () => {
+  
+  dotenv.config()
+
   const navigate = useNavigate()
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        `${window.REACT_APP_API_URL}/auth/register`,
+        `${process.env.REACT_APP_API_URL}/auth/register`,
         values
       )
       // process.env.REACT_APP_API_URL

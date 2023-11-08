@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import dotenv from 'dotenv'
+
+
 
 function User() {
+  dotenv.config()
   const { id } = useParams()
   const [user, setUser] = useState(null)
   const [isSuperuser, setIsSuperuser] = useState(false)
@@ -12,7 +16,9 @@ function User() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`${window.REACT_APP_API_URL}/users/${id}`)
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/users/${id}`
+        )
 
         if (!response.ok) {
           throw new Error(`Failed to fetch user with ID: ${id}`)
