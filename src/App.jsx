@@ -3,7 +3,7 @@ import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
 import UserList from './components/UserList'
-import { AppProvider, useAppContext } from './store/store.jsx'
+import { AppProvider } from './store/store.jsx'
 import User from './components/User'
 import UserPersonal from './components/UserPersonal'
 
