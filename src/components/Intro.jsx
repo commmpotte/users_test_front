@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function Intro() {
   return (
     <div className="text-center mt-5">
-      <h1 className="display-4">Добро пожаловать</h1>
+      <h2 className="display-4">Добро пожаловать</h2>
       <div className="mt-3">
         <Link to="/auth/login">
           <button className="btn btn-primary me-2">Логин</button>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import axios from 'axios'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAppContext } from '../store/store'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -47,18 +46,28 @@ const UserPersonal = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.patch(
+      const response = await fetch(
         `${process.env.REACT_APP_API_URL}users/${id}`,
-        values
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        }
       )
-      const userData = response.data
-      setCurrentUser(userData)
-      // console.log(currentUser)
-      console.log('Успешное обновление данных:', userData)
-      navigate('/users')
-      setSubmitting(false)
+      if (response.ok) {
+        const userData = response.data
+        setCurrentUser(userData)
+        // console.log(currentUser)
+        console.log('Успешное обновление данных:', userData)
+        navigate('/users')
+      } else {
+        console.error('Ошибка при обновлении данных:', response.statusText)
+      }
     } catch (error) {
       console.error('Ошибка при обновлении данных:', error)
+    } finally {
       setSubmitting(false)
     }
   }

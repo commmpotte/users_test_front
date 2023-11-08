@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../store/store'
 import { Link, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import dotenv from 'dotenv'
 
 function UserList() {
   const [users, setUsers] = useState([])

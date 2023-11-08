@@ -5,7 +5,6 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link, useNavigate } from 'react-router-dom'
 
-
 const RegisterSchema = Yup.object().shape({
   username: Yup.string()
     .matches(/^[\w.@+-]+$/, 'Неверный формат')
@@ -27,15 +26,26 @@ const Register = () => {
   const navigate = useNavigate()
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post(
+      const response = await fetch(
         `${process.env.REACT_APP_API_URL}auth/register`,
-        values
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        }
       )
-      console.log('Успешная регистрация:', response.data)
-      navigate('/auth/login')
-      setSubmitting(false)
+
+      if (response.ok) {
+        console.log('Успешная регистрация')
+        navigate('/auth/login')
+      } else {
+        console.error('Ошибка при регистрации:', response.statusText)
+      }
     } catch (error) {
       console.error('Ошибка при регистрации:', error)
+    } finally {
       setSubmitting(false)
     }
   }
