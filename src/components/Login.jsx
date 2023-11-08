@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import dotenv from 'dotenv'
 
 function Login() {
-
   const [formData, setFormData] = useState({ username: '', password: '' })
   const [errors, setErrors] = useState({})
   const navigate = useNavigate()
