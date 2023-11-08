@@ -28,7 +28,6 @@ function UserList() {
         sortOrder: sortConfig.direction,
       }
 
-
       fetch(
         `${process.env.REACT_APP_API_URL}users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`
       )
@@ -116,7 +115,7 @@ function UserList() {
           )}
           {currentUser.username && currentUser.is_superuser === true && (
             <button className="btn btn-light ">
-              <Link to={`/users/pp/${currentUser.id}`}>Личный кабинет</Link>
+              <Link to={`/users/pp/${currentUser.userId}`}>Личный кабинет</Link>
             </button>
           )}
         </div>
