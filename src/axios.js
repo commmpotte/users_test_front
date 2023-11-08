@@ -1,12 +1,13 @@
-import axios from "axios";
-//'http://localhost:4444'
-const instance = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
-})
+// import axios from "axios"
 
-instance.interceptors.request.use((config) => {
-    config.headers.Authorization = window.localStorage.getItem('token')
-    return config
-})
+// //'http://localhost:4444'
+// const instance = axios.create({
+//     baseURL: process.env.REACT_APP_API_URL
+// })
 
-export default instance
+// instance.interceptors.request.use((config) => {
+//     config.headers.Authorization = window.localStorage.getItem('token')
+//     return config
+// })
+
+// export default instance
