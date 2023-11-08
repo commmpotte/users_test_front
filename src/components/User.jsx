@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import dotenv from 'dotenv'
-
-
 
 function User() {
   const { id } = useParams()
@@ -16,7 +13,7 @@ function User() {
     const fetchUser = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/users/${id}`
+          `${process.env.REACT_APP_API_URL}users/${id}`
         )
 
         if (!response.ok) {
@@ -42,7 +39,7 @@ function User() {
       is_active: isActive,
     }
 
-    fetch(`${process.env.REACT_APP_API_URL}/users/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}users/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -61,7 +58,7 @@ function User() {
   }
 
   const handleDelete = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/users/${id}`, {
+    fetch(`${process.env.REACT_APP_API_URL}users/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-// import axios from '../axios'
 import axios from 'axios'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAppContext } from '../store/store'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import dotenv from 'dotenv'
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string()

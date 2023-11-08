@@ -29,13 +29,6 @@ function UserList() {
         sortOrder: sortConfig.direction,
       }
 
-      //  {
-      //           method: 'GET',
-      //           headers: {
-      //             'Content-Type': 'application/json',
-      //           },
-      //           body: JSON.stringify(requestData),
-      //         }
 
       fetch(
         `${process.env.REACT_APP_API_URL}users?criteria=${searchCriteria}&value=${searchValue}&sortKey=${query.sortKey}&sortOrder=${query.sortOrder}`

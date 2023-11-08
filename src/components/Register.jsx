@@ -1,11 +1,9 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-// import axios from '../axios'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link, useNavigate } from 'react-router-dom'
-import dotenv from 'dotenv'
 
 
 const RegisterSchema = Yup.object().shape({
@@ -30,11 +28,9 @@ const Register = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/register`,
+        `${process.env.REACT_APP_API_URL}auth/register`,
         values
       )
-      // process.env.REACT_APP_API_URL
-
       console.log('Успешная регистрация:', response.data)
       navigate('/auth/login')
       setSubmitting(false)

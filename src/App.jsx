@@ -6,14 +6,15 @@ import UserList from './components/UserList'
 import { AppProvider } from './store/store.jsx'
 import User from './components/User'
 import UserPersonal from './components/UserPersonal'
+import Intro from './components/Intro'
 
 function App() {
   return (
     <AppProvider>
       <Router>
         <Routes>
-          {/* <Route path="/auth/login" element={<Login />} index /> */}
-          <Route path="/" element={<Login />} index />
+          <Route path="/" element={<Intro />} index />
+          <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/users/:id" element={<User />} />
