@@ -6,7 +6,6 @@ import dotenv from 'dotenv'
 
 
 function User() {
-  dotenv.config()
   const { id } = useParams()
   const [user, setUser] = useState(null)
   const [isSuperuser, setIsSuperuser] = useState(false)

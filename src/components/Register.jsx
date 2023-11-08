@@ -26,9 +26,6 @@ const RegisterSchema = Yup.object().shape({
 })
 
 const Register = () => {
-  
-  dotenv.config()
-
   const navigate = useNavigate()
   const handleSubmit = async (values, { setSubmitting }) => {
     try {

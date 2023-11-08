@@ -26,7 +26,6 @@ const RegisterSchema = Yup.object().shape({
 })
 
 const UserPersonal = () => {
-  dotenv.config()
   const { currentUser, setCurrentUser } = useAppContext()
   const { id } = useParams()
   const navigate = useNavigate()

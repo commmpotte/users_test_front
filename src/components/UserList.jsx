@@ -7,7 +7,6 @@ import dotenv from 'dotenv'
 
 
 function UserList() {
-  dotenv.config()
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(true)
   const [searchCriteria, setSearchCriteria] = useState('username')
